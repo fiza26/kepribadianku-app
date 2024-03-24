@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "question": "Fakta lebih penting daripada perasaan, apakah benar?"
+    },
+    {
+        "id": 2,
+        "question": "Memecat seorang karyawan karena tidak memenuhi standar kerja adalah hal yang benar"
+    },
+    {
+        "id": 3,
+        "question": "Apakah menurutmu logika lebih penting daripada perasaan dalam mengambil keputusan?"
+    },
+    {
+        "id": 4,
+        "question": "Kamu sering membongkar barang elektronik atau mainan hanya untuk tahu cara kerjanya"
+    },
+    {
+        "id": 5,
+        "question": "Terkadang dalam keadaan tertentu kita harus menggunakan perasaan"
+    },
+    {
+        "id": 6,
+        "question": "Kamu selalu mencoba cara baru jika cara pertama tidak berhasil"
+    },
+    {
+        "id": 7,
+        "question": "Menyiapkan banyak rencana adalah hal yang baik dibandingkan hanya punya satu rencana matang saja"
+    },
+    {
+        "id" : 8,
+        "question": "Berimprovisasi lebih penting daripada membuat rencana yang matang"
+    },
+    {
+        "id" : 9,
+        "question": "Kamu suka permainan yang kompleks dalam artian banyak hal yang bisa terjadi pada permainan tersebut"
+    },
+    {
+        "id" : 10,
+        "question": "Penting bagi kamu untuk menguasai banyak bidang daripada satu bidang saja"
+    }
+]

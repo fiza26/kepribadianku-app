@@ -1,0 +1,42 @@
+[
+    {
+        "id": 1,
+        "question": "Are facts more important than feelings, is it true?"
+    },
+    {
+        "id": 2,
+        "question": "Firing an employee for not meeting work standards is the right thing to do"
+    },
+    {
+        "id": 3,
+        "question": "Do you think logic is more important than feelings in making decisions?"
+    },
+    {
+        "id": 4,
+        "question": "You often dismantle electronic devices or toys just to know how they work"
+    },
+    {
+        "id": 5,
+        "question": "Sometimes, in certain situations, we have to rely on our feelings"
+    },
+    {
+        "id": 6,
+        "question": "You always try new ways if the first method doesn't work"
+    },
+    {
+        "id": 7,
+        "question": "Preparing multiple plans is better than having only one solid plan"
+    },
+    {
+        "id" : 8,
+        "question": "Improvising is more important than making solid plans"
+    },
+    {
+        "id" : 9,
+        "question": "You enjoy complex games, meaning there are many possibilities within the game"
+    },
+    {
+        "id" : 10,
+        "question": "It's important for you to master multiple fields rather than just one"
+    }
+]
