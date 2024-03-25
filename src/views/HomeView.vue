@@ -191,11 +191,11 @@ const emitQuestion = (question) => {
       </div>
       <h3 v-if="!showInfo && !usernameState && !questionFinished">Take your time {{ username }} no need to rush 👏
         <ProgressBar :questionFinished="questionFinished" />
-        <pre>
+        <!-- <pre>
         <p>Logician : {{ logician }}</p>
         <p>Feeler : {{ feeler }}</p>
         <p>Creative: {{ creative }}</p>
-      </pre>
+      </pre> -->
       </h3>
       <QuestionsAndAnswer :showInfo="showInfo" :questionFinished="questionFinished" :usernameState="usernameState"
         :language="language" :currentQuestion="currentQuestion" :indonesian="indonesian" :english="english"
@@ -230,33 +230,6 @@ const emitQuestion = (question) => {
   background: rgba(255, 255, 255, 0.25);
   backdrop-filter: blur(50px);
   border: 2px solid rgba(255, 255, 255, 0.18);
-}
-
-.modal {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(to right, #F15A2A, #29ABE2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 5;
-  transition: 1s ease-in-out;
-}
-
-.modal .modal-content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background-color: #101825;
-  color: white;
-  width: 100%;
-  height: 100px;
-  text-align: center;
-  transform: scale(0);
-  animation: moveUp 0.3s cubic-bezier(0.165, 0.84, 0.44, 1) forwards;
 }
 
 h3 {
