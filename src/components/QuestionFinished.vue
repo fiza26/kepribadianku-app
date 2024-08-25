@@ -2,6 +2,11 @@
 import { defineProps } from "vue";
 
 const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative', 'username']);
+
+const retakeTest = () => {
+    location.reload();
+};
+
 </script>
 
 <template>
@@ -74,6 +79,7 @@ const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative',
                 </p>
             </div>
         </div>
+        <button @click="retakeTest()">Retake Test</button>
     </div>
 </template>
 
@@ -82,7 +88,7 @@ const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative',
     display: flex;
     justify-content: space-around;
     align-items: center;
-    /* flex-wrap: wrap; */
+    flex-direction: column;
     animation-name: pop-animation;
     animation-duration: 0.7s;
     animation-fill-mode: forwards;
@@ -97,6 +103,24 @@ const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative',
     display: flex;
     justify-content: space-around;
     align-items: center;
+}
+
+button {
+    font-family: "Poppins", sans-serif;
+    width: 100%;
+    height: 35px;
+    border-radius: 15px;
+    border: none;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #101825;
+    color: white;
+    transition: ease-in-out 0.3s;
+}
+
+button:hover {
+    background-color: white;
+    color: black;
 }
 
 @keyframes pop-animation {
