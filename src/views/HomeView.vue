@@ -172,6 +172,21 @@ const emitQuestion = (question) => {
   console.log('Emitted question:', question);
 }
 
+const resize = () => {
+  const container = document.querySelector('.container');
+  if (container) {
+    container.style.height = 'auto';
+  }
+};
+
+watchEffect(() => {
+  if (questionFinished.value) {
+    resize();
+  }
+});
+
+
+
 </script>
 
 <template>
