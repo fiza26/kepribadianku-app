@@ -7,7 +7,6 @@
 
 <style>
 .about {
-  min-height: 100vh;
   color: white;
   margin: 20px;
 }
