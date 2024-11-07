@@ -84,57 +84,49 @@ const currentQuestion = computed(() => {
   }
 });
 
+const scoreChanges = {
+  correct: [
+    { logician: 10 },               // Question 0
+    { logician: 10 },               // Question 1
+    { logician: 10 },               // Question 2
+    { creative: 10, logician: 5 },  // Question 3
+    { feeler: 10, creative: 5 },    // Question 4
+    { creative: 10, logician: 5, feeler: 5 }, // Question 5
+    { creative: 10 },               // Question 6
+    { creative: 10 },               // Question 7
+    { creative: 10, logician: 10 }, // Question 8
+    { logician: 10 },               // Question 9
+  ],
+  incorrect: [
+    { feeler: 10 },                 // Question 0
+    { feeler: 10 },                 // Question 1
+    { feeler: 10 },                 // Question 2
+    { feeler: 10 },                 // Question 3
+    { logician: 10 },               // Question 4
+    {},                             // Question 5 (no score changes)
+    {},                             // Question 6 (no score changes)
+    { logician: 5, feeler: 5 },     // Question 7
+    { logician: 5, feeler: 10 },    // Question 8
+    { feeler: 5 }                   // Question 9
+  ]
+};
+
+const applyScoreChanges = (change) => {
+  logician.value += change.logician || 0;
+  feeler.value += change.feeler || 0;
+  creative.value += change.creative || 0;
+};
+
 const correct = () => {
-  if (currentQuestionIndex.value === 0) {
-    logician.value += 10;
-  } else if (currentQuestionIndex.value === 1) {
-    logician.value += 10;
-  } else if (currentQuestionIndex.value === 2) {
-    logician.value += 10;
-  } else if (currentQuestionIndex.value === 3) {
-    creative.value += 10;
-    logician.value += 5;
-  } else if (currentQuestionIndex.value === 4) {
-    feeler.value += 10;
-    creative.value += 5;
-  } else if (currentQuestionIndex.value === 5) {
-    creative.value += 10;
-    logician.value += 5;
-    feeler.value += 5;
-  } else if (currentQuestionIndex.value === 6) {
-    creative.value += 10;
-  } else if (currentQuestionIndex.value === 7) {
-    creative.value += 10;
-  } else if (currentQuestionIndex.value === 8) {
-    creative.value += 10;
-    logician.value += 10;
-  } else if (currentQuestionIndex.value === 9) {
-    logician.value += 10;
-  }
+  const change = scoreChanges.correct[currentQuestionIndex.value] || {};
+  applyScoreChanges(change);
   currentQuestionIndex.value++;
   updateProgressBar();
 };
 
 const incorrect = () => {
-  if (currentQuestionIndex.value === 0) {
-    feeler.value += 10;
-  } else if (currentQuestionIndex.value === 1) {
-    feeler.value += 10;
-  } else if (currentQuestionIndex.value === 2) {
-    feeler.value += 10;
-  } else if (currentQuestionIndex.value === 3) {
-    feeler.value += 10;
-  } else if (currentQuestionIndex.value === 4) {
-    logician.value += 10;
-  } else if (currentQuestionIndex.value === 7) {
-    logician.value += 5;
-    feeler.value += 5;
-  } else if (currentQuestionIndex.value === 8) {
-    logician.value += 5;
-    feeler.value += 10;
-  } else if (currentQuestionIndex.value === 9) {
-    feeler.value += 5;
-  }
+  const change = scoreChanges.incorrect[currentQuestionIndex.value] || {};
+  applyScoreChanges(change);
   currentQuestionIndex.value++;
   updateProgressBar();
 };
@@ -184,9 +176,6 @@ watchEffect(() => {
     resize();
   }
 });
-
-
-
 </script>
 
 <template>
