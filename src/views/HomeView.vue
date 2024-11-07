@@ -96,6 +96,7 @@ const scoreChanges = {
     { creative: 10 },               // Question 7
     { creative: 10, logician: 10 }, // Question 8
     { logician: 10 },               // Question 9
+    { logician: 10, feeler: 5, creative: 5 }                // Question 10
   ],
   incorrect: [
     { feeler: 10 },                 // Question 0
@@ -107,7 +108,8 @@ const scoreChanges = {
     {},                             // Question 6 (no score changes)
     { logician: 5, feeler: 5 },     // Question 7
     { logician: 5, feeler: 10 },    // Question 8
-    { feeler: 5 }                   // Question 9
+    { feeler: 5 },                   // Question 9
+    { creative: 10, logician: 5, feeler: 5 }              // Question 10
   ]
 };
 

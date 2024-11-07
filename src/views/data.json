@@ -28,15 +28,19 @@
         "question": "Menyiapkan banyak rencana adalah hal yang baik dibandingkan hanya punya satu rencana matang saja"
     },
     {
-        "id" : 8,
+        "id": 8,
         "question": "Berimprovisasi lebih penting daripada membuat rencana yang matang"
     },
     {
-        "id" : 9,
+        "id": 9,
         "question": "Kamu suka permainan yang kompleks dalam artian banyak hal yang bisa terjadi pada permainan tersebut"
     },
     {
-        "id" : 10,
+        "id": 10,
         "question": "Penting bagi kamu untuk menguasai banyak bidang daripada satu bidang saja"
+    },
+    {
+        "id": 11,
+        "question": "Kamu lebih suka meja kerjamu tertata rapi daripada berantakan"
     }
 ]
