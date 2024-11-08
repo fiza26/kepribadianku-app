@@ -42,5 +42,9 @@
     {
         "id": 11,
         "question": "Kamu lebih suka meja kerjamu tertata rapi daripada berantakan"
+    },
+    {
+        "id": 12,
+        "question": "Kamu tidak merasa perlu membuktikan bahwa kamu benar demi menjaga keharmonisan grub"
     }
 ]
