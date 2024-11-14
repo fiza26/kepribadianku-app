@@ -46,5 +46,9 @@
     {
         "id": 12,
         "question": "You feel that you don't need to prove you are right for the sake of group harmony"
+    },
+    {
+        "id": 13,
+        "question": "When drawing, you have a tendency to use many colors"
     }
 ]

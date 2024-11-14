@@ -2,7 +2,6 @@
 import { ref, computed, watchEffect } from "vue";
 import data from "./data.json";
 import dataEnglish from "./dataEnglish.json";
-
 import ModalForName from "../components/ModalForName.vue";
 import ModalForTheSame from "../components/ModalForTheSame.vue";
 import ModalForLanguage from "../components/ModalForLanguage.vue";
@@ -95,9 +94,10 @@ const scoreChanges = {
     { creative: 10 },               // Question 6
     { creative: 10 },               // Question 7
     { creative: 10, logician: 10 }, // Question 8
-    { logician: 10 },               // Question 9
+    { logician: 10, creative: 10 },                          // Question 9
     { logician: 10, feeler: 5, creative: 5 },                // Question 10
-    { feeler: 10 }                  // Question 11
+    { feeler: 10 },                 // Question 11
+    { creative: 10 }                // Question 12
   ],
   incorrect: [
     { feeler: 10 },                 // Question 0
@@ -111,7 +111,8 @@ const scoreChanges = {
     { logician: 5, feeler: 10 },    // Question 8
     { feeler: 5 },                  // Question 9
     { creative: 10, logician: 5, feeler: 5 },              // Question 10
-    { logician: 10, creative: 5 }                              // Question 11
+    { logician: 10, creative: 5 },                         // Question 11
+    {}                              // Question 12
   ]
 };
 
@@ -199,11 +200,11 @@ watchEffect(() => {
       </div>
       <h3 v-if="!showInfo && !usernameState && !questionFinished">Take your time {{ username }} no need to rush 👏
         <ProgressBar :questionFinished="questionFinished" />
-        <!-- <pre>
+        <pre>
         <p>Logician : {{ logician }}</p>
         <p>Feeler : {{ feeler }}</p>
         <p>Creative: {{ creative }}</p>
-      </pre> -->
+      </pre>
       </h3>
       <QuestionsAndAnswer :showInfo="showInfo" :questionFinished="questionFinished" :usernameState="usernameState"
         :language="language" :currentQuestion="currentQuestion" :indonesian="indonesian" :english="english"
