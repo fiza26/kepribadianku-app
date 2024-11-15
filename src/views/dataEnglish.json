@@ -49,6 +49,10 @@
     },
     {
         "id": 13,
-        "question": "When drawing, you have a tendency to use many colors"
+        "question": "When you draw, you have a tendency to use many colors"
+    }, 
+    {
+        "id": 14,
+        "question": "Stories and people emotions is a lot more interesting for you compared to number and data"
     }
 ]
