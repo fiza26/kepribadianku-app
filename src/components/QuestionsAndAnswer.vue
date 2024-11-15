@@ -11,7 +11,6 @@ const emitCurrentQuestion = () => {
         emits('emitQuestion', props.currentQuestion.question);
     }
 }
-
 </script>
 
 <template>

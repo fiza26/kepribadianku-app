@@ -6,7 +6,6 @@ const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative',
 const retakeTest = () => {
     location.reload();
 };
-
 </script>
 
 <template>
