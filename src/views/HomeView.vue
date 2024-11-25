@@ -215,7 +215,7 @@ watchEffect(() => {
         @chooseIndonesian="chooseIndonesian" @chooseEnglish="chooseEnglish" @correct="correct" @incorrect="incorrect"
         @notSure="notSure" @emitQuestion="emitQuestion" />
       <QuestionFinished :questionFinished="questionFinished" :logician="logician" :feeler="feeler" :creative="creative"
-        :username="username" />
+        :username="username" :indonesian="indonesian" :english="english" />
     </div>
   </main>
 </template>
