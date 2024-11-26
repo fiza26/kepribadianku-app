@@ -1,7 +1,30 @@
 <script setup>
-import { defineProps } from "vue";
+import { defineProps, computed, watch } from "vue";
 
 const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative', 'username', 'indonesian', 'english']);
+
+
+const ifCloseTheVisionary = computed(() => {
+    if (props.logician > props.feeler && props.feeler >= 90 || props.feeler > props.logician && props.logician >= 90) {
+        return true;
+    }
+    return false;
+});
+
+watch(ifCloseTheVisionary, (newValue) => {
+    console.log("if logican and feeler score are almost the same", newValue);
+});
+
+const ifCloseTheVisionaryDreamer = computed(() => {
+    if (props.feeler > props.creative && props.creative >= 90 || props.creative > props.feeler && props.feeler >= 90) {
+        return true;
+    }
+    return false;
+});
+
+watch(ifCloseTheVisionaryDreamer, (newValue) => {
+    console.log("If dreamer and creative score are almost the same", newValue);
+});
 
 const retakeTest = () => {
     location.reload();
@@ -15,7 +38,7 @@ const retakeTest = () => {
         <p>Feeler : {{ feeler }}</p>
         <p>Creative: {{ creative }}</p>
       </pre> -->
-        <div class="archetype" v-if="logician >= feeler && logician >= creative && logician !== feeler">
+        <div class="archetype" v-if="logician > feeler && logician > creative && logician !== feeler && logician !== creative">
             <div>
                 <img src="../views/img/the-logician.png" alt="">
             </div>
@@ -47,7 +70,8 @@ const retakeTest = () => {
                     analytical prowess, methodical thinking, and unwavering commitment to intellectual integrity.</p>
             </div>
         </div>
-        <div class="archetype" v-if="feeler >= logician && feeler >= creative && logician !== feeler && feeler !== creative">
+        <div class="archetype"
+            v-if="feeler > logician && feeler > creative && logician !== feeler && feeler !== creative">
             <div>
                 <img src="../views/img/the-dreamer.png" alt="">
             </div>
@@ -150,7 +174,7 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype" v-if="feeler === creative > logician">
+        <div class="archetype" v-if="feeler === creative">
             <div>
                 <img src="../views/img/the-visionary.png" alt="">
             </div>
@@ -178,7 +202,8 @@ const retakeTest = () => {
                     The Visionary Dreamer is an archetype that blends the boundless imagination of The Dreamer with the
                     bold innovation of The Creative. They navigate the realms of abstract thought and emotional
                     resonance, while fearlessly crafting unique, groundbreaking ideas. This archetype thrives at the
-                    intersection of inspiration and ingenuity, transforming visionary dreams into compelling realities. <br><br>
+                    intersection of inspiration and ingenuity, transforming visionary dreams into compelling realities.
+                    <br><br>
 
                     Driven by an innate desire to explore the uncharted and express the extraordinary, Visionary
                     Dreamers effortlessly weave creativity into the fabric of their dreams, breathing life into abstract
@@ -188,6 +213,51 @@ const retakeTest = () => {
                     The Visionary Dreamer reminds us that even the wildest dreams, when paired with fearless creativity,
                     have the potential to shape new realities and open doors to limitless possibilities. They are both
                     dreamers and creators, forever bridging the gap between imagination and innovation.
+                </p>
+            </div>
+        </div>
+        <div class="archetype" v-if="logician === creative">
+            <div>
+                <img src="../views/img/the-visionary.png" alt="">
+            </div>
+            <div class="archetype-description">
+                <h1>{{ username }} is The Innovative Thinker</h1>
+                <p v-if="indonesian">
+                    Pemimpi Visioner adalah arketipe yang memadukan imajinasi tak terbatas dari Sang Pemimpi dengan
+                    inovasi berani dari Sang Kreatif. Mereka menjelajahi ranah pemikiran abstrak dan resonansi
+                    emosional, sambil dengan penuh keberanian menciptakan ide-ide unik dan revolusioner. Arketipe ini
+                    berkembang di persimpangan antara inspirasi dan kecerdikan, mengubah mimpi visioner menjadi realitas
+                    yang mengesankan. <br><br>
+
+                    Didorong oleh hasrat bawaan untuk menjelajahi hal-hal yang belum terjamah dan mengekspresikan
+                    sesuatu yang luar biasa, Pemimpi Visioner dengan mudah menjalin kreativitas ke dalam mimpi-mimpi
+                    mereka, menghidupkan konsep-konsep abstrak melalui ekspresi yang orisinal dan penuh makna. Mereka
+                    adalah pelopor kemungkinan, menyeimbangkan intuisi dan inovasi untuk membayangkan dan menciptakan
+                    dunia yang menginspirasi kekaguman dan penghormatan. <br><br>
+
+                    Pemimpi Visioner mengingatkan kita bahwa bahkan mimpi yang paling liar sekalipun, jika dipadukan
+                    dengan kreativitas tanpa rasa takut, memiliki potensi untuk membentuk realitas baru dan membuka
+                    pintu menuju kemungkinan tanpa batas. Mereka adalah pemimpi sekaligus pencipta, selamanya
+                    menjembatani kesenjangan antara imajinasi dan inovasi.
+                </p>
+                <p v-if="english">
+                    Pemikir Inovatif adalah arketipe yang mengharmonisasikan ketelitian analitis dari Ahli Logika dengan
+                    orisinalitas berani dari Individu Kreatif. Individu ini unggul dalam menganalisis sistem yang
+                    kompleks dengan ketelitian logis, sambil secara bersamaan membayangkan solusi revolusioner yang
+                    melampaui konvensi. Mereka berkembang di ruang di mana struktur bertemu dengan spontanitas, mengubah
+                    wawasan metodis menjadi ide-ide yang inovatif. <br><br>
+
+                    Didorong oleh rasa ingin tahu yang tak henti-hentinya dan semangat penjelajahan yang tanpa rasa
+                    takut, Pemikir Inovatif melihat tantangan sebagai peluang untuk menggabungkan logika dengan
+                    kreativitas. Mereka mendekati masalah dengan pola pikir sistematis, namun solusi mereka dipenuhi
+                    dengan percikan kecerdikan yang membedakan mereka. Dengan menyeimbangkan analisis rasional dengan
+                    visi imajinatif, mereka merancang strategi dan inovasi yang tidak hanya praktis tetapi juga sangat
+                    orisinal. <br><br>
+
+                    Pemikir Inovatif menginspirasi kita untuk meyakini bahwa ketelitian dan imajinasi bukanlah
+                    kebalikan, melainkan sekutu, yang bekerja bersama untuk membentuk masa depan yang logis dan tak
+                    terbatas. Mereka adalah pencipta metodis, yang menelusuri jalur baru dengan struktur dan
+                    spontanitas.
                 </p>
             </div>
         </div>
@@ -216,8 +286,6 @@ const retakeTest = () => {
     justify-content: space-around;
     align-items: center;
 }
-
-.archetype .archetype-description p {}
 
 button {
     font-family: "Poppins", sans-serif;
