@@ -136,7 +136,7 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype" v-if="logician === feeler">
+        <div class="archetype" v-if="logician === feeler && logician && feeler > creative">
             <div>
                 <img src="../views/img/the-visionary.png" alt="">
             </div>
@@ -174,7 +174,7 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype" v-if="feeler === creative">
+        <div class="archetype" v-if="feeler === creative && feeler && creative > logician">
             <div>
                 <img src="../views/img/the-visionary.png" alt="">
             </div>
@@ -216,7 +216,7 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype" v-if="logician === creative">
+        <div class="archetype" v-if="logician === creative && logician && creative > feeler">
             <div>
                 <img src="../views/img/the-visionary.png" alt="">
             </div>
