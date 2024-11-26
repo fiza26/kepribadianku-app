@@ -10,7 +10,12 @@ const retakeTest = () => {
 
 <template>
     <div class="question-finished" v-if="questionFinished">
-        <div class="archetype" v-if="logician >= feeler && logician >= creative">
+        <!-- <pre>
+        <p>Logician : {{ logician }}</p>
+        <p>Feeler : {{ feeler }}</p>
+        <p>Creative: {{ creative }}</p>
+      </pre> -->
+        <div class="archetype" v-if="logician >= feeler && logician >= creative && logician !== feeler">
             <div>
                 <img src="../views/img/the-logician.png" alt="">
             </div>
@@ -42,7 +47,7 @@ const retakeTest = () => {
                     analytical prowess, methodical thinking, and unwavering commitment to intellectual integrity.</p>
             </div>
         </div>
-        <div class="archetype" v-if="feeler >= logician && feeler >= creative">
+        <div class="archetype" v-if="feeler >= logician && feeler >= creative && logician !== feeler">
             <div>
                 <img src="../views/img/the-dreamer.png" alt="">
             </div>
@@ -107,6 +112,44 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
+        <div class="archetype" v-if="logician === feeler">
+            <div>
+                <img src="../views/img/the-visionary.png" alt="">
+            </div>
+            <div class="archetype-description">
+                <h1>{{ username }} is The Visionary</h1>
+                <p v-if="indonesian">
+                    Sang Visioner adalah individu yang memadukan kecermatan berpikir logis dengan imajinasi yang
+                    melampaui batas. Mereka memiliki kemampuan untuk menjembatani fakta dengan mimpi, menciptakan
+                    ide-ide yang tidak hanya inovatif tetapi juga dapat diwujudkan. Sang Visioner dikenal karena
+                    pendekatan mereka yang metodis dalam mengubah gagasan abstrak menjadi solusi konkret. <br><br>
+
+                    Dikendalikan oleh dorongan untuk memahami dunia sekaligus menciptakan sesuatu yang baru, mereka
+                    unggul dalam merancang strategi besar yang tidak hanya berdasarkan logika tetapi juga dihiasi oleh
+                    nuansa emosional dan estetika. Dengan keseimbangan antara analisis kritis dan intuisi kreatif, Sang
+                    Visioner sering kali menjadi inspirasi bagi orang lain, membuktikan bahwa pemikiran rasional dan
+                    impian besar dapat berjalan beriringan untuk membentuk masa depan yang lebih baik. <br><br>
+
+                    Sang Visioner akan menjadi arketipe yang memadukan yang terbaik dari dunia fakta dan mimpi,
+                    menjadikan mereka seorang pencipta sekaligus seorang pemikir.
+                </p>
+                <p v-if="english">
+                    The Visionary is an individual who combines the precision of logical thinking with boundless
+                    imagination. They possess the ability to bridge facts and dreams, creating ideas that are not only
+                    innovative but also achievable. The Visionary is known for their methodical approach in transforming
+                    abstract concepts into concrete solutions. <br><br>
+
+                    Driven by the desire to understand the world while creating something new, they excel at designing
+                    grand strategies that are not only grounded in logic but also infused with emotional and aesthetic
+                    nuances. With a balance between critical analysis and creative intuition, The Visionary often
+                    inspires others, proving that rational thinking and grand dreams can work hand in hand to shape a
+                    better future. <br><br>
+
+                    The Visionary embodies the best of both the worlds of fact and dream, making them both a creator and
+                    a thinker.
+                </p>
+            </div>
+        </div>
         <button @click="retakeTest()">Retake Test</button>
     </div>
 </template>
@@ -132,6 +175,8 @@ const retakeTest = () => {
     justify-content: space-around;
     align-items: center;
 }
+
+.archetype .archetype-description p {}
 
 button {
     font-family: "Poppins", sans-serif;
