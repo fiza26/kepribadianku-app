@@ -47,7 +47,7 @@ const retakeTest = () => {
                     analytical prowess, methodical thinking, and unwavering commitment to intellectual integrity.</p>
             </div>
         </div>
-        <div class="archetype" v-if="feeler >= logician && feeler >= creative && logician !== feeler">
+        <div class="archetype" v-if="feeler >= logician && feeler >= creative && logician !== feeler && feeler !== creative">
             <div>
                 <img src="../views/img/the-dreamer.png" alt="">
             </div>
@@ -80,7 +80,7 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype" v-if="creative > logician && feeler">
+        <div class="archetype" v-if="creative > logician && creative > feeler">
             <div>
                 <img src="../views/img/the-creative.png" alt="">
             </div>
@@ -147,6 +147,47 @@ const retakeTest = () => {
 
                     The Visionary embodies the best of both the worlds of fact and dream, making them both a creator and
                     a thinker.
+                </p>
+            </div>
+        </div>
+        <div class="archetype" v-if="feeler === creative > logician">
+            <div>
+                <img src="../views/img/the-visionary.png" alt="">
+            </div>
+            <div class="archetype-description">
+                <h1>{{ username }} is The Visionary Dreamer</h1>
+                <p v-if="indonesian">
+                    Pemimpi Visioner adalah arketipe yang memadukan imajinasi tak terbatas dari Sang Pemimpi dengan
+                    inovasi berani dari Sang Kreatif. Mereka menjelajahi ranah pemikiran abstrak dan resonansi
+                    emosional, sambil dengan penuh keberanian menciptakan ide-ide unik dan revolusioner. Arketipe ini
+                    berkembang di persimpangan antara inspirasi dan kecerdikan, mengubah mimpi visioner menjadi realitas
+                    yang mengesankan. <br><br>
+
+                    Didorong oleh hasrat bawaan untuk menjelajahi hal-hal yang belum terjamah dan mengekspresikan
+                    sesuatu yang luar biasa, Pemimpi Visioner dengan mudah menjalin kreativitas ke dalam mimpi-mimpi
+                    mereka, menghidupkan konsep-konsep abstrak melalui ekspresi yang orisinal dan penuh makna. Mereka
+                    adalah pelopor kemungkinan, menyeimbangkan intuisi dan inovasi untuk membayangkan dan menciptakan
+                    dunia yang menginspirasi kekaguman dan penghormatan. <br><br>
+
+                    Pemimpi Visioner mengingatkan kita bahwa bahkan mimpi yang paling liar sekalipun, jika dipadukan
+                    dengan kreativitas tanpa rasa takut, memiliki potensi untuk membentuk realitas baru dan membuka
+                    pintu menuju kemungkinan tanpa batas. Mereka adalah pemimpi sekaligus pencipta, selamanya
+                    menjembatani kesenjangan antara imajinasi dan inovasi.
+                </p>
+                <p v-if="english">
+                    The Visionary Dreamer is an archetype that blends the boundless imagination of The Dreamer with the
+                    bold innovation of The Creative. They navigate the realms of abstract thought and emotional
+                    resonance, while fearlessly crafting unique, groundbreaking ideas. This archetype thrives at the
+                    intersection of inspiration and ingenuity, transforming visionary dreams into compelling realities. <br><br>
+
+                    Driven by an innate desire to explore the uncharted and express the extraordinary, Visionary
+                    Dreamers effortlessly weave creativity into the fabric of their dreams, breathing life into abstract
+                    concepts through original and impactful expressions. They are pioneers of possibility, balancing
+                    intuition and innovation to envision and create worlds that inspire awe and admiration. <br><br>
+
+                    The Visionary Dreamer reminds us that even the wildest dreams, when paired with fearless creativity,
+                    have the potential to shape new realities and open doors to limitless possibilities. They are both
+                    dreamers and creators, forever bridging the gap between imagination and innovation.
                 </p>
             </div>
         </div>
