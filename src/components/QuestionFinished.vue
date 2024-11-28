@@ -176,7 +176,7 @@ const retakeTest = () => {
         </div>
         <div class="archetype" v-if="feeler === creative && feeler && creative > logician">
             <div>
-                <img src="../views/img/the-visionary.png" alt="">
+                <img src="../views/img/the-visionary-dreamer.png" alt="">
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Visionary Dreamer</h1>
@@ -218,7 +218,7 @@ const retakeTest = () => {
         </div>
         <div class="archetype" v-if="logician === creative && logician && creative > feeler">
             <div>
-                <img src="../views/img/the-visionary.png" alt="">
+                <img src="../views/img/the-innovative-thinker.png" alt="">
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Innovative Thinker</h1>
