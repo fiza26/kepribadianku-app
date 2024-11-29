@@ -204,11 +204,11 @@ watchEffect(() => {
       </div>
       <h3 v-if="!showInfo && !usernameState && !questionFinished">Take your time {{ username }} no need to rush 👏
         <ProgressBar :questionFinished="questionFinished" />
-        <!-- <pre>
+        <pre>
         <p>Logician : {{ logician }}</p>
         <p>Feeler : {{ feeler }}</p>
         <p>Creative: {{ creative }}</p>
-      </pre> -->
+      </pre>
       </h3>
       <QuestionsAndAnswer :showInfo="showInfo" :questionFinished="questionFinished" :usernameState="usernameState"
         :language="language" :currentQuestion="currentQuestion" :indonesian="indonesian" :english="english"
