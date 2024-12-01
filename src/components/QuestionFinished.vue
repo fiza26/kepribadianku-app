@@ -55,13 +55,6 @@ async function generateTheLogician() {
     }
 }
 
-// watch(() => props.questionFinished, (newValue) => {
-//     console.log("Generate content is running, newValue:", newValue);
-//     if (newValue && props.logician > props.feeler && props.logician > props.creative && props.logician !== props.feeler && props.logician !== props.creative) {
-//         generateTheLogician();
-//     }
-// });
-
 async function generateTheDreamer() {
     try {
         const texts = " Sang pemimpi adalah jiwa yang penuh dengan kreativitas tanpa batas dan imajinasi yang tak terkekang, menjelajahi alam pikiran yang belum tersentuh oleh batasan realitas. Sifat intuitif mereka dan kecenderungan untuk menggali kedalaman alam bawah sadar sering membuat mereka lebih mengutamakan resonansi emosional dan konsep abstrak daripada fakta yang konkret. Terpikat oleh daya tarik kemungkinan yang tak nyata, para pemimpi menikmati keindahan wilayah yang belum terjamah, menemukan kedamaian dalam dunia seni, sastra, dan upaya visioner. Dengan kemampuan bawaan untuk merangkai cerita ajaib dan membayangkan dunia yang tak terlihat, mereka menginspirasi orang lain untuk merangkul keajaiban dari mimpi-mimpi terliar mereka."
@@ -71,13 +64,6 @@ async function generateTheDreamer() {
         console.log(error)
     }
 }
-
-// watch(() => props.questionFinished, (newValue) => {
-//     console.log("Generate content is running, newValue:", newValue);
-//     if (newValue && props.feeler > props.logician && props.feeler > props.creative && props.logician !== props.feeler && props.feeler !== props.creative) {
-//         generateTheDreamer();
-//     }
-// });
 
 async function generateTheCreative() {
     try {
@@ -89,13 +75,6 @@ async function generateTheCreative() {
     }
 }
 
-// watch(() => props.questionFinished, (newValue) => {
-//     console.log("Generate content is running, newValue:", newValue);
-//     if (newValue && props.creative > props.logician && props.creative > props.feeler) {
-//         generateTheCreative();
-//     }
-// });
-
 async function generateTheVisionary() {
     try {
         const texts = "Sang Visioner adalah individu yang memadukan kecermatan berpikir logis dengan imajinasi yang melampaui batas. Mereka memiliki kemampuan untuk menjembatani fakta dengan mimpi, menciptakan ide-ide yang tidak hanya inovatif tetapi juga dapat diwujudkan. Sang Visioner dikenal karena pendekatan mereka yang metodis dalam mengubah gagasan abstrak menjadi solusi konkret. Dikendalikan oleh dorongan untuk memahami dunia sekaligus menciptakan sesuatu yang baru, mereka unggul dalam merancang strategi besar yang tidak hanya berdasarkan logika tetapi juga dihiasi oleh nuansa emosional dan estetika. Dengan keseimbangan antara analisis kritis dan intuisi kreatif, Sang Visioner sering kali menjadi inspirasi bagi orang lain, membuktikan bahwa pemikiran rasional dan impian besar dapat berjalan beriringan untuk membentuk masa depan yang lebih baik. Sang Visioner akan menjadi arketipe yang memadukan yang terbaik dari dunia fakta dan mimpi, menjadikan mereka seorang pencipta sekaligus seorang pemikir."
@@ -105,13 +84,6 @@ async function generateTheVisionary() {
         console.log(error)
     }
 }
-
-// watch(() => props.questionFinished, (newValue) => {
-//     console.log("Generate content is running, newValue:", newValue);
-//     if (newValue && props.logician === props.feeler && props.logician && props.feeler > props.creative) {
-//         generateTheVisionary();
-//     }
-// });
 
 async function generateTheVisionaryDreamer() {
     try {
@@ -123,13 +95,6 @@ async function generateTheVisionaryDreamer() {
     }
 }
 
-// watch(() => props.questionFinished, (newValue) => {
-//     console.log("Generate content is running, newValue:", newValue);
-//     if (newValue && props.feeler === props.creative && props.feeler && props.creative > props.logician) {
-//         generateTheVisionaryDreamer();
-//     }
-// });
-
 async function generateTheInnovativeThinker() {
     try {
         const texts = "Pemikir Inovatif adalah arketipe yang mengharmonisasikan ketelitian analitis dari Ahli Logika dengan orisinalitas berani dari Individu Kreatif. Individu ini unggul dalam menganalisis sistem yang kompleks dengan ketelitian logis, sambil secara bersamaan membayangkan solusi revolusioner yang melampaui konvensi. Mereka berkembang di ruang di mana struktur bertemu dengan spontanitas, mengubah wawasan metodis menjadi ide-ide yang inovatif. Didorong oleh rasa ingin tahu yang tak henti-hentinya dan semangat penjelajahan yang tanpa rasa takut, Pemikir Inovatif melihat tantangan sebagai peluang untuk menggabungkan logika dengan kreativitas. Mereka mendekati masalah dengan pola pikir sistematis, namun solusi mereka dipenuhi dengan percikan kecerdikan yang membedakan mereka. Dengan menyeimbangkan analisis rasional dengan visi imajinatif, mereka merancang strategi dan inovasi yang tidak hanya praktis tetapi juga sangat orisinal. Pemikir Inovatif menginspirasi kita untuk meyakini bahwa ketelitian dan imajinasi bukanlah kebalikan, melainkan sekutu, yang bekerja bersama untuk membentuk masa depan yang logis dan tak terbatas. Mereka adalah pencipta metodis, yang menelusuri jalur baru dengan struktur dan spontanitas."
@@ -139,13 +104,6 @@ async function generateTheInnovativeThinker() {
         console.log(error)
     }
 }
-
-// watch(() => props.questionFinished, (newValue) => {
-//     console.log("Generate content is running, newValue:", newValue);
-//     if (newValue && props.logician === props.creative && props.logician && props.creative > props.feeler) {
-//         generateTheInnovativeThinker();
-//     }
-// });
 
 watch(() => props.questionFinished, (newValue) => {
     console.log("Generate content is running", newValue);
