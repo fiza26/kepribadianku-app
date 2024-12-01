@@ -55,12 +55,12 @@ async function generateTheLogician() {
     }
 }
 
-watch(() => props.questionFinished, (newValue) => {
-    console.log("Generate content is running, newValue:", newValue);
-    if (newValue && props.logician > props.feeler && props.logician > props.creative && props.logician !== props.feeler && props.logician !== props.creative) {
-        generateTheLogician();
-    }
-});
+// watch(() => props.questionFinished, (newValue) => {
+//     console.log("Generate content is running, newValue:", newValue);
+//     if (newValue && props.logician > props.feeler && props.logician > props.creative && props.logician !== props.feeler && props.logician !== props.creative) {
+//         generateTheLogician();
+//     }
+// });
 
 async function generateTheDreamer() {
     try {
@@ -72,12 +72,12 @@ async function generateTheDreamer() {
     }
 }
 
-watch(() => props.questionFinished, (newValue) => {
-    console.log("Generate content is running, newValue:", newValue);
-    if (newValue && props.feeler > props.logician && props.feeler > props.creative && props.logician !== props.feeler && props.feeler !== props.creative) {
-        generateTheDreamer();
-    }
-});
+// watch(() => props.questionFinished, (newValue) => {
+//     console.log("Generate content is running, newValue:", newValue);
+//     if (newValue && props.feeler > props.logician && props.feeler > props.creative && props.logician !== props.feeler && props.feeler !== props.creative) {
+//         generateTheDreamer();
+//     }
+// });
 
 async function generateTheCreative() {
     try {
@@ -89,12 +89,12 @@ async function generateTheCreative() {
     }
 }
 
-watch(() => props.questionFinished, (newValue) => {
-    console.log("Generate content is running, newValue:", newValue);
-    if (newValue && props.creative > props.logician && props.creative > props.feeler) {
-        generateTheCreative();
-    }
-});
+// watch(() => props.questionFinished, (newValue) => {
+//     console.log("Generate content is running, newValue:", newValue);
+//     if (newValue && props.creative > props.logician && props.creative > props.feeler) {
+//         generateTheCreative();
+//     }
+// });
 
 async function generateTheVisionary() {
     try {
@@ -106,12 +106,12 @@ async function generateTheVisionary() {
     }
 }
 
-watch(() => props.questionFinished, (newValue) => {
-    console.log("Generate content is running, newValue:", newValue);
-    if (newValue && props.logician === props.feeler && props.logician && props.feeler > props.creative) {
-        generateTheVisionary();
-    }
-});
+// watch(() => props.questionFinished, (newValue) => {
+//     console.log("Generate content is running, newValue:", newValue);
+//     if (newValue && props.logician === props.feeler && props.logician && props.feeler > props.creative) {
+//         generateTheVisionary();
+//     }
+// });
 
 async function generateTheVisionaryDreamer() {
     try {
@@ -123,12 +123,12 @@ async function generateTheVisionaryDreamer() {
     }
 }
 
-watch(() => props.questionFinished, (newValue) => {
-    console.log("Generate content is running, newValue:", newValue);
-    if (newValue && props.feeler === props.creative && props.feeler && props.creative > props.logician) {
-        generateTheVisionaryDreamer();
-    }
-});
+// watch(() => props.questionFinished, (newValue) => {
+//     console.log("Generate content is running, newValue:", newValue);
+//     if (newValue && props.feeler === props.creative && props.feeler && props.creative > props.logician) {
+//         generateTheVisionaryDreamer();
+//     }
+// });
 
 async function generateTheInnovativeThinker() {
     try {
@@ -140,9 +140,26 @@ async function generateTheInnovativeThinker() {
     }
 }
 
+// watch(() => props.questionFinished, (newValue) => {
+//     console.log("Generate content is running, newValue:", newValue);
+//     if (newValue && props.logician === props.creative && props.logician && props.creative > props.feeler) {
+//         generateTheInnovativeThinker();
+//     }
+// });
+
 watch(() => props.questionFinished, (newValue) => {
-    console.log("Generate content is running, newValue:", newValue);
-    if (newValue && props.logician === props.creative && props.logician && props.creative > props.feeler) {
+    console.log("Generate content is running", newValue);
+    if (newValue && props.logician > props.feeler && props.logician > props.creative && props.logician !== props.feeler && props.logician !== props.creative) {
+        generateTheLogician();
+    } else if (newValue && props.feeler > props.logician && props.feeler > props.creative && props.logician !== props.feeler && props.feeler !== props.creative) {
+        generateTheDreamer();
+    } else if (newValue && props.creative > props.logician && props.creative > props.feeler) {
+        generateTheCreative();
+    } else if (newValue && props.logician === props.feeler && props.logician && props.feeler > props.creative) {
+        generateTheVisionary();
+    } else if (newValue && props.feeler === props.creative && props.feeler && props.creative > props.logician) {
+        generateTheVisionaryDreamer();
+    } else if (newValue && props.logician === props.creative && props.logician && props.creative > props.feeler) {
         generateTheInnovativeThinker();
     }
 });
