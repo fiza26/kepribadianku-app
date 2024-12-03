@@ -47,8 +47,13 @@ async function result(prompt) {
 
 async function generateArchetype(texts) {
     try {
-        const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text using bahasa gaul jaksel, harus pakai bahasa gaul jaksel. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, dont write the score to the text. Minimum 180 words`
-        result(prompt)
+        if (props.indonesian) {
+            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text using bahasa gaul jaksel, harus pakai bahasa gaul jaksel. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, dont write the score to the text. Minimum 180 words`
+            result(prompt)
+        } else if (props.english) {
+            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, dont write the score to the text, don't say based on the provided text. Minimum 180 words`
+            result(prompt)
+        }
     } catch (error) {
         console.log(error)
     }
@@ -91,10 +96,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Logician</h1>
-                <p v-if="indonesian">
-                    {{ textsResult }}
-                </p>
-                <p v-if="english">
+                <p>
                     {{ textsResult }}
                 </p>
             </div>
@@ -106,10 +108,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Dreamer</h1>
-                <p v-if="indonesian">
-                    {{ textsResult }}
-                </p>
-                <p v-if="english">
+                <p>
                     {{ textsResult }}
                 </p>
             </div>
@@ -120,10 +119,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Creative</h1>
-                <p v-if="indonesian">
-                    {{ textsResult }}
-                </p>
-                <p v-if="english">
+                <p>
                     {{ textsResult }}
                 </p>
             </div>
@@ -134,10 +130,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Visionary</h1>
-                <p v-if="indonesian">
-                    {{ textsResult }}
-                </p>
-                <p v-if="english">
+                <p>
                     {{ textsResult }}
                 </p>
             </div>
@@ -148,10 +141,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Visionary Dreamer</h1>
-                <p v-if="indonesian">
-                    {{ textsResult }}
-                </p>
-                <p v-if="english">
+                <p>
                     {{ textsResult }}
                 </p>
             </div>
@@ -162,10 +152,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Innovative Thinker</h1>
-                <p v-if="indonesian">
-                    {{ textsResult }}
-                </p>
-                <p v-if="english">
+                <p>
                     {{ textsResult }}
                 </p>
             </div>
