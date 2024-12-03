@@ -9,29 +9,6 @@ const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
 const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative', 'username', 'indonesian', 'english']);
 
-const ifCloseTheVisionary = computed(() => {
-    if (props.logician > props.feeler && props.feeler >= 90 || props.feeler > props.logician && props.logician >= 90) {
-        return true;
-    }
-    return false;
-});
-
-watch(ifCloseTheVisionary, (newValue) => {
-    console.log("if logican and feeler score are almost the same", newValue);
-});
-
-const ifCloseTheVisionaryDreamer = computed(() => {
-    if (props.feeler > props.creative && props.creative >= 90 || props.creative > props.feeler && props.feeler >= 90) {
-        return true;
-    }
-    return false;
-});
-
-watch(ifCloseTheVisionaryDreamer, (newValue) => {
-    console.log("If dreamer and creative score are almost the same", newValue);
-});
-
-
 // Generate Archetype
 const textsResult = ref();
 
@@ -48,10 +25,10 @@ async function result(prompt) {
 async function generateArchetype(texts) {
     try {
         if (props.indonesian) {
-            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text using bahasa gaul jaksel, harus pakai bahasa gaul jaksel. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, dont write the score to the text. Minimum 180 words`
+            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text using bahasa gaul jaksel, harus pakai bahasa gaul jaksel. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, don't write the score to the text. Minimum 180 words. Don't use word anjir or buset. Don't assume gender. Don't say based on the text or berdasarkan teks`
             result(prompt)
         } else if (props.english) {
-            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, dont write the score to the text, don't say based on the provided text. Minimum 180 words`
+            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, dont write the score to the text, don't say based on the provided text. Minimum 180 words. Don't assume gender`
             result(prompt)
         }
     } catch (error) {
@@ -89,6 +66,11 @@ const retakeTest = () => {
 
 <template>
     <div class="question-finished" v-if="questionFinished">
+        <!-- <pre>
+        <p>Logician : {{ logician }}</p>
+        <p>Feeler : {{ feeler }}</p>
+        <p>Creative: {{ creative }}</p>
+      </pre> -->
         <div class="archetype"
             v-if="logician > feeler && logician > creative && logician !== feeler && logician !== creative">
             <div>
@@ -135,7 +117,8 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype" v-if="feeler === creative && feeler && creative > logician">
+        <div class="archetype"
+            v-if="feeler === creative && feeler && creative > logician">
             <div>
                 <img src="../views/img/the-visionary-dreamer.png" alt="">
             </div>
@@ -146,7 +129,8 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype" v-if="logician === creative && logician && creative > feeler">
+        <div class="archetype"
+            v-if="logician === creative && logician && creative > feeler">
             <div>
                 <img src="../views/img/the-innovative-thinker.png" alt="">
             </div>

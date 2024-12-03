@@ -85,38 +85,38 @@ const currentQuestion = computed(() => {
 
 const scoreChanges = {
   correct: [
-    { logician: 10 },               // Question 0
-    { logician: 10 },               // Question 1
-    { logician: 10 },               // Question 2
-    { creative: 10, logician: 5 },  // Question 3
-    { feeler: 10, creative: 5 },    // Question 4
-    { creative: 10, logician: 5, feeler: 5 }, // Question 5
-    { creative: 10 },               // Question 6
-    { creative: 10 },               // Question 7
+    { logician: 10 },                 // Question 0
+    { logician: 10 },                 // Question 1
+    { logician: 10 },                 // Question 2
+    { creative: 10, logician: 10 },   // Question 3
+    { feeler: 10, creative: 10 },     // Question 4
+    { creative: 10, logician: 10, feeler: 5 }, // Question 5
+    { creative: 10, logician: 5, feeler: 5 },               // Question 6
+    { creative: 10, feeler: 10 },                            // Question 7
     { creative: 10, logician: 10 }, // Question 8
     { logician: 10, creative: 10 },                          // Question 9
     { logician: 10, feeler: 5, creative: 5 },                // Question 10
     { feeler: 10 },                 // Question 11
     { creative: 10 },               // Question 12
     { feeler: 10 },                 // Question 13
-    { creative: 10 }                // Question 14
+    { creative: 10, logician: 10 }                // Question 14
   ],
   incorrect: [
-    { feeler: 10 },                 // Question 0
-    { feeler: 10 },                 // Question 1
-    { feeler: 10 },                 // Question 2
+    { feeler: 10, creative: 10 },                            // Question 0
+    { feeler: 10, creative: 10 },                            // Question 1
+    { feeler: 10, creative: 10 },                            // Question 2
     { feeler: 10 },                 // Question 3
     { logician: 10 },               // Question 4
-    {},                             // Question 5 (no score changes)
-    {},                             // Question 6 (no score changes)
-    { logician: 5, feeler: 5 },     // Question 7
-    { logician: 5, feeler: 10 },    // Question 8
-    { feeler: 5 },                  // Question 9
-    { creative: 10, logician: 5, feeler: 5 },              // Question 10
-    { logician: 10, creative: 5 },                         // Question 11
-    {},                               // Question 12 (no score changes)
-    { logician: 5, creative: 5 },     // Question 13
-    {}                                // Question 14 (no score changes)
+    { feeler: 10},                  // Question 5 
+    { logician: 10, feeler: 5 },                             // Question 6
+    { logician: 5, feeler: 5 },       // Question 7
+    { logician: 5, feeler: 10 },      // Question 8
+    { feeler: 10 },                   // Question 9
+    { creative: 10 },                 // Question 10
+    { logician: 10, creative: 10 },                            // Question 11
+    { feeler: 10 },                                            // Question 12
+    { logician: 10, creative: 5 },                             // Question 13
+    { feeler: 10}                                              // Question 14
   ]
 };
 
