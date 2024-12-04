@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, computed, watch } from "vue";
+import { ref, defineProps, watch } from "vue";
 import { GoogleGenerativeAI } from "@google/generative-ai";
 
 const API_KEY = import.meta.env.VITE_GEMINI_KEY;
@@ -66,11 +66,6 @@ const retakeTest = () => {
 
 <template>
     <div class="question-finished" v-if="questionFinished">
-        <!-- <pre>
-        <p>Logician : {{ logician }}</p>
-        <p>Feeler : {{ feeler }}</p>
-        <p>Creative: {{ creative }}</p>
-      </pre> -->
         <div class="archetype"
             v-if="logician > feeler && logician > creative && logician !== feeler && logician !== creative">
             <div>
