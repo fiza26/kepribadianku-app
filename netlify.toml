@@ -1,0 +1,6 @@
+[build]
+command = "npm run build" # The command to build your Vue.js app
+publish = "dist"          # The directory where your built files are located
+
+[functions]
+directory = "netlify/functions" # The folder where your serverless functions are stored

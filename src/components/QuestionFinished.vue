@@ -1,38 +1,30 @@
 <script setup>
 import { ref, defineProps, watch } from "vue";
-import { GoogleGenerativeAI } from "@google/generative-ai";
-
-const API_KEY = import.meta.env.VITE_GEMINI_KEY;
-const genAI = new GoogleGenerativeAI(API_KEY)
-
-const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+import axios from "axios";
 
 const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative', 'username', 'indonesian', 'english']);
 
-// Generate Archetype
 const textsResult = ref();
-
-async function result(prompt) {
-    const result = await model.generateContent(prompt);
-
-    const rawResponseText = result.response.text();
-    const cleanedResponseText = rawResponseText.replace(/\*/g, '');
-
-    textsResult.value = cleanedResponseText;
-    console.log(result.response.text());
-}
 
 async function generateArchetype(texts) {
     try {
-        if (props.indonesian) {
-            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text using bahasa gaul jaksel, harus pakai bahasa gaul jaksel. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, don't write the score to the text. Minimum 180 words. Don't use word anjir or buset. Don't assume gender. Don't say based on the text or berdasarkan teks`
-            result(prompt)
-        } else if (props.english) {
-            const prompt = `Describe and deduct ${props.username} personality traits of someone in a full detail based on this following text. ${texts} and also consider this score ${props.logician}, ${props.feeler}, ${props.creative}, just consider the score for description or personality trait, dont write the score to the text, don't say based on the provided text. Minimum 180 words. Don't assume gender`
-            result(prompt)
-        }
+        const response = await axios.post('/.netlify/functions/gemini', {
+            username: props.username,
+            logician: props.logician,
+            feeler: props.feeler,
+            creative: props.creative,
+            texts: texts,
+            indonesian: props.indonesian,
+            english: props.english,
+        });
+
+        const rawResponseText = response.data.generatedText;
+        const cleanedResponseText = rawResponseText.replace(/\*/g, '');
+
+        textsResult.value = cleanedResponseText;
+        console.log(response.data.generatedText);
     } catch (error) {
-        console.log(error)
+        console.error('Error generating Archetype:', error);
     }
 }
 
@@ -112,8 +104,7 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype"
-            v-if="feeler === creative && feeler && creative > logician">
+        <div class="archetype" v-if="feeler === creative && feeler && creative > logician">
             <div>
                 <img src="../views/img/the-visionary-dreamer.png" alt="">
             </div>
@@ -124,8 +115,7 @@ const retakeTest = () => {
                 </p>
             </div>
         </div>
-        <div class="archetype"
-            v-if="logician === creative && logician && creative > feeler">
+        <div class="archetype" v-if="logician === creative && logician && creative > feeler">
             <div>
                 <img src="../views/img/the-innovative-thinker.png" alt="">
             </div>
