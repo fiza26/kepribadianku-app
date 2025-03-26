@@ -9,7 +9,7 @@ const emits = defineEmits(['start'])
     <div class="info" v-if="showInfo">
         <h1>Howdy friends! 👏😊🚀
         </h1>
-        <p>Wanna know what kind of person are you?</p>
+        <p>Wanna know what kind of person you are?</p>
         <p>Let's take a quick test to find out</p>
         <button @click="$emit('start')">Start</button>
     </div>
