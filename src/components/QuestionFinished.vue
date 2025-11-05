@@ -1,5 +1,5 @@
 <script setup>
-import { ref, defineProps, watch } from "vue";
+import { ref, defineProps, watch, computed } from "vue";
 import axios from "axios";
 
 const props = defineProps(['questionFinished', 'logician', 'feeler', 'creative', 'username', 'indonesian', 'english']);
@@ -49,6 +49,15 @@ watch(() => props.questionFinished, (newValue) => {
         const texts = "Pemikir Inovatif adalah arketipe yang mengharmonisasikan ketelitian analitis dari Ahli Logika dengan orisinalitas berani dari Individu Kreatif. Individu ini unggul dalam menganalisis sistem yang kompleks dengan ketelitian logis, sambil secara bersamaan membayangkan solusi revolusioner yang melampaui konvensi. Mereka berkembang di ruang di mana struktur bertemu dengan spontanitas, mengubah wawasan metodis menjadi ide-ide yang inovatif. Didorong oleh rasa ingin tahu yang tak henti-hentinya dan semangat penjelajahan yang tanpa rasa takut, Pemikir Inovatif melihat tantangan sebagai peluang untuk menggabungkan logika dengan kreativitas. Mereka mendekati masalah dengan pola pikir sistematis, namun solusi mereka dipenuhi dengan percikan kecerdikan yang membedakan mereka. Dengan menyeimbangkan analisis rasional dengan visi imajinatif, mereka merancang strategi dan inovasi yang tidak hanya praktis tetapi juga sangat orisinal. Pemikir Inovatif menginspirasi kita untuk meyakini bahwa ketelitian dan imajinasi bukanlah kebalikan, melainkan sekutu, yang bekerja bersama untuk membentuk masa depan yang logis dan tak terbatas. Mereka adalah pencipta metodis, yang menelusuri jalur baru dengan struktur dan spontanitas."
         generateArchetype(texts);
     }
+});
+
+// Add a computed property for safe HTML rendering
+const formattedTextsResult = computed(() => {
+    if (textsResult.value) {
+        // Replace double newlines with <br><br> for paragraph-like breaks
+        return textsResult.value.replace(/\n\s*\n/g, '<br><br>');
+    }
+    return '';
 });
 
 const retakeTest = () => {
@@ -121,9 +130,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Innovative Thinker</h1>
-                <p>
-                    {{ textsResult }}
-                </p>
+                <p v-html="formattedTextsResult"></p>
             </div>
         </div>
         <button @click="retakeTest()">Retake Test</button>
