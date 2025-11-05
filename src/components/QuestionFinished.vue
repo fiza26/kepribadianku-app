@@ -74,9 +74,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Logician</h1>
-                <p>
-                    {{ textsResult }}
-                </p>
+                <p v-html="formattedTextsResult"></p>
             </div>
         </div>
         <div class="archetype"
@@ -86,9 +84,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Dreamer</h1>
-                <p>
-                    {{ textsResult }}
-                </p>
+                <p v-html="formattedTextsResult"></p>
             </div>
         </div>
         <div class="archetype" v-if="creative > logician && creative > feeler">
@@ -97,9 +93,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Creative</h1>
-                <p>
-                    {{ textsResult }}
-                </p>
+                <p v-html="formattedTextsResult"></p>
             </div>
         </div>
         <div class="archetype" v-if="logician === feeler && logician && feeler > creative">
@@ -108,9 +102,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Visionary</h1>
-                <p>
-                    {{ textsResult }}
-                </p>
+                <p v-html="formattedTextsResult"></p>
             </div>
         </div>
         <div class="archetype" v-if="feeler === creative && feeler && creative > logician">
@@ -119,9 +111,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Visionary Dreamer</h1>
-                <p>
-                    {{ textsResult }}
-                </p>
+                <p v-html="formattedTextsResult"></p>
             </div>
         </div>
         <div class="archetype" v-if="logician === creative && logician && creative > feeler">
