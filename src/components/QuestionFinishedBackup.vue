@@ -10,7 +10,6 @@ const isLoading = ref(null)
 
 async function generateArchetype(texts) {
     isLoading.value = true
-    textsResult.value = null
     imageResult.value = null
 
     try {
