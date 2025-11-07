@@ -58,16 +58,15 @@ watch(() => props.questionFinished, (newValue) => {
 
 // Add a computed property for safe HTML rendering
 const formattedTextsResult = computed(() => {
-    if (textsResult.value) {
-        // Replace double newlines with <br><br> for paragraph-like breaks
-        return textsResult.value
-            .split(/(?<=\.)/)
-            .map(p => `<p>${p.trim()}</p>`)
-            .join("");
+    if (!textsResult.value) return "";
 
-    }
-    return '';
+    return textsResult.value
+        .trim()
+        .split(/\n\s*\n/)        // 🟢 split by blank line
+        .map(p => `<p>${p.trim()}</p>`)
+        .join("");
 });
+
 
 const retakeTest = () => {
     location.reload();
