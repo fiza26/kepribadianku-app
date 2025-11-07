@@ -55,7 +55,11 @@ watch(() => props.questionFinished, (newValue) => {
 const formattedTextsResult = computed(() => {
     if (textsResult.value) {
         // Replace double newlines with <br><br> for paragraph-like breaks
-        return textsResult.value.replace(/\n\s*\n/g, '<br><br>');
+        return textsResult.value
+            .split(/(?<=\.)\s+/)
+            .map(p => `<p>${p.trim()}</p>`)
+            .join("");
+
     }
     return '';
 });
@@ -74,7 +78,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Logician</h1>
-                <p v-html="formattedTextsResult"></p>
+                <div v-html="formattedTextsResult"></div>
             </div>
         </div>
         <div class="archetype"
@@ -84,7 +88,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Dreamer</h1>
-                <p v-html="formattedTextsResult"></p>
+                <div v-html="formattedTextsResult"></div>
             </div>
         </div>
         <div class="archetype" v-if="creative > logician && creative > feeler">
@@ -93,7 +97,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Creative</h1>
-                <p v-html="formattedTextsResult"></p>
+                <div v-html="formattedTextsResult"></div>
             </div>
         </div>
         <div class="archetype" v-if="logician === feeler && logician && feeler > creative">
@@ -102,7 +106,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Visionary</h1>
-                <p v-html="formattedTextsResult"></p>
+                <div v-html="formattedTextsResult"></div>
             </div>
         </div>
         <div class="archetype" v-if="feeler === creative && feeler && creative > logician">
@@ -111,7 +115,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Visionary Dreamer</h1>
-                <p v-html="formattedTextsResult"></p>
+                <div v-html="formattedTextsResult"></div>
             </div>
         </div>
         <div class="archetype" v-if="logician === creative && logician && creative > feeler">
@@ -120,7 +124,7 @@ const retakeTest = () => {
             </div>
             <div class="archetype-description">
                 <h1>{{ username }} is The Innovative Thinker</h1>
-                <p v-html="formattedTextsResult"></p>
+                <div v-html="formattedTextsResult"></div>
             </div>
         </div>
         <button @click="retakeTest()">Retake Test</button>
