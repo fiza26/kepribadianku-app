@@ -56,7 +56,7 @@ const formattedTextsResult = computed(() => {
     if (textsResult.value) {
         // Replace double newlines with <br><br> for paragraph-like breaks
         return textsResult.value
-            .split(/(?<=\.)\s+/)
+            .split(/(?<=\.)/)
             .map(p => `<p>${p.trim()}</p>`)
             .join("");
 
