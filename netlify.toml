@@ -4,3 +4,5 @@ publish = "dist"          # The directory where your built files are located
 
 [functions]
 directory = "netlify/functions" # The folder where your serverless functions are stored
+node_bundler = "esbuild"
+external_node_modules = ["@google/genai"]
