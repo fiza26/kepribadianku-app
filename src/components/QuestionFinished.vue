@@ -62,10 +62,14 @@ const formattedTextsResult = computed(() => {
 
     return textsResult.value
         .trim()
-        .split(/\n\s*\n/)        // 🟢 split by blank line
-        .map(p => `<p>${p.trim()}</p>`)
+        .replace(/\r\n/g, '\n')     // normalize
+        .replace(/\n{1,}/g, '\n\n') // convert single \n to \n\n
+        .split(/\n\s*\n/)          // now paragraphs are real paragraphs
+        .map(p => `<p class="mb-4">${p.trim()}</p>`)
         .join("");
 });
+
+
 
 
 const retakeTest = () => {
