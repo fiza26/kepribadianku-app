@@ -205,8 +205,8 @@ const retakeTest = () => {
     align-items: center;
 }
 
-/* ✅ bottom spacing for paragraphs */
-.archetype-description p {
+/* ✅ Apply spacing to paragraphs inside v-html */
+.archetype-description :deep(p) {
     margin-bottom: 1rem;
 }
 
