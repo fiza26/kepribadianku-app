@@ -29,7 +29,8 @@ export async function handler(event) {
 
     const textModel = genAI.getGenerativeModel({ model: "gemini-2.5-flash" });
     const textResult = await textModel.generateContent(textPrompt);
-    const generatedText = textResult.response.text;
+    const generatedText = textResult.response.text();
+
     // ------------------------------------------------
 
     // --- 2. Image Generation Logic ---
